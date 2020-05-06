@@ -19,14 +19,14 @@ author: Diego Charrez
 pinned: false
 ---
 
-So far I have gotten a warm welcome from this awesome community, I share the passion for robotics and artificial intelligence and I am pretty sure that I am going to enjoy working on this summer project!.
+I am glad that I would be learning and working with the awesome community of Jderobot. I share their passion for developing robotics applications.
 
 
 ## firsts steps
 
-For my fist [issue](https://github.com/TheRoboticsClub/colab-gsoc2020-Diego_Charrez/issues/1), in the [repository](https://github.com/TheRoboticsClub/colab-gsoc2020-Diego_Charrez) that I will be using for the project.
+For my first [issue](https://github.com/TheRoboticsClub/colab-gsoc2020-Diego_Charrez/issues/1), I have to set up a blog where I can write my progress. This [repository](https://github.com/TheRoboticsClub/colab-gsoc2020-Diego_Charrez) is going to have code and documentation for my project.
 
-I am setting up this jekyll website [template](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz) which I really like and I am happy to use it for the project. Moreover, it is well organized and easy to personalize.
+I am setting up this blog [template](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz) which I like and I am happy to use it for the project. Moreover, it is well organized and easy to personalize.
 
 
 

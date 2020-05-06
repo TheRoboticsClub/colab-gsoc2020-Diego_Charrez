@@ -1,6 +1,6 @@
 var store = [{
         "title": "Starting the community bonding",
-        "excerpt":"So far I have gotten a warm welcome from this awesome community, I share the passion for robotics and artificial intelligence and I am pretty sure that I am going to enjoy working on this summer project!. firsts steps For my fist issue, in the repository that I will be...","categories": ["GSoC"],
+        "excerpt":"I am glad that I would be learning and working with the awesome community of Jderobot. I share their passion for developing robotics applications. firsts steps For my first issue, I have to set up a blog where I can write my progress. This repository is going to have code...","categories": ["GSoC"],
         "tags": ["Jderobot"],
         "url": "http://localhost:4000/gsoc/Starting-the-community-bonding/",
         "teaser":null}]
