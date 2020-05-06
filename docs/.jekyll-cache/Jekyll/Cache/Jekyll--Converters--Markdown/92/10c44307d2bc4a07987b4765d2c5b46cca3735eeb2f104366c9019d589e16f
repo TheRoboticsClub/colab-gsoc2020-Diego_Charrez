@@ -1,17 +1,4 @@
----
-title: Logbook
-layout: posts
-permalink: /logbook/
-
-collection: posts
-
-classes: wide
-
-sidebar:
-  nav: "docs"
----
-
-Updating regularly about ongoing work in this GSoC project.
+I"k<p>Updating regularly about ongoing work in this GSoC project.</p>
 
 <!-- ## Working with Posts
 
@@ -25,3 +12,4 @@ Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit number
 ```
 
 It is recommended to store the images in the `/assets/images/` directory. This way you have a well-defined structure. -->
+:ET

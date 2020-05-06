@@ -8,7 +8,8 @@ header:
     #- label: "<i class='fas fa-download'></i> Install now"
     #  url: "/installation/"
 excerpt: 
-  Write your doc title here
+  Reinforcement Learning for Autonomous Driving <br>
+  with Gazebo and OpenAI gym
 feature_row:
   - image_path: /assets/images/cover/logbook.jpg
     alt: "Logbook"
@@ -40,12 +41,10 @@ youTube_id: ID7qaEcIu4k
 
 Hello, everybody.
 
-You can write an introduction about the work you are going to do, links, something about yourself, etc.
+This project focuses on using stable Reinforcement Learning for autonomous driving using Gazebo and OpenAI gym.
 
-In the `README.md` file at the root of the project are the steps to replicate the Minimal mistakes template on your local machine. This way you don't need to upload it to GitHub to be represented until it's ready.
+Mentors:
 
-Uploading content to GitHub automatically displays your documentation in the link with a structure of the type:
+* Sergio Paniego Blanco
 
-```
-https://github_user_name.github.io/repository_name/
-```
+* David Pascual Hernández
