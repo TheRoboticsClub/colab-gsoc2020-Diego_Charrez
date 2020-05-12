@@ -25,7 +25,7 @@ pinned: false
 
 OpenAI Gym is a framework to test and developed reinforcement learning algorithms, it includes many environments like the Atari games.
 
-![image tooltip here](/assets/images/blogs/CarRacing-v0.gif)
+![image tooltip here]({{ "/assets/images/blogs/CarRacing-v0.gif" | absolute_url }})
 
 ### Gazebo
 
