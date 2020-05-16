@@ -42,7 +42,7 @@ I used the [installation guide](https://github.com/RoboticsLabURJC/2019-tfm-igna
 ### Installation
 
 #### ROS Melodic and Gazebo 9.0 in Ubuntu 18.04
-
+[ROS wiki](http://wiki.ros.org/melodic/Installation/Ubuntu)
 ```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -52,6 +52,17 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+I got some this error, because my tf2_ros was working with python2
+
+```bash
+ImportError: dynamic module does not define module export function (PyInit__tf2)
+```
+
+I tried many possible solutions like these.
+
+[Attempted solution](https://answers.ros.org/question/326226/importerror-dynamic-module-does-not-define-module-export-function-pyinit__tf2/)
+
+Then reading many other forums and questions, I spent many hours trying to fix, but I couldnt make it work even with the turtle example. So I decided to make a clean build following this [blog](https://www.miguelalonsojr.com/blog/robotics/ros/python3/2019/08/20/ros-melodic-python-3-build.html)
 TODO
 
 ## References
