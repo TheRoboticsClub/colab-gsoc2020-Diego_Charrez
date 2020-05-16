@@ -1,5 +1,5 @@
 ---
-title: "Gym and Gazebo at Behaviour Suite"
+title: "Gym and Gazebo"
 excerpt: ""
 
 sidebar:
