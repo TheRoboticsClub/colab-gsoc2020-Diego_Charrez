@@ -143,7 +143,7 @@ cd agents/turtlebot
 python3 circuit2_turtlebot_lidar_qlearn.py
 ```
 
-![Turtlebot](/assets/images/blogs/Turtlebot.gif)
+![Turtlebot]({{ "/assets/images/blogs/Turtlebot.gif" | absolute_url }})
 
 ## References
 
