@@ -23,21 +23,21 @@ pinned: false
 
 ## OpenAI Gym
 
-OpenAI Gym is a framework to test and developed reinforcement learning algorithms, it includes many environments like the Atari games.
+OpenAI Gym is a framework to test and developed reinforcement learning algorithms, it includes many environments like the Atari games [\[1\]](https://gym.openai.com/).
 
 ![CarRacing]({{ "/assets/images/blogs/CarRacing-v0.gif" | absolute_url }})
 
 ## Gazebo
 
-Is an open-source 3D robotics simulator, and it is integrated with ROS.
+Is an open-source 3D robotics simulator, and it is integrated with ROS [\[2\]](http://gazebosim.org/) .
 
 ## Behaviour Studio
 
-Is a tool that will benchmark different algorithms for autonomous driving using Jderobot tools.
+Is a tool that will benchmark different algorithms for autonomous driving using Jderobot tools [\[3\]](https://github.com/JdeRobot/BehaviorSuite).
 
 # Using Behaviour Studio, Gym and Gazebo
 
-I used the [installation guide](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/tree/master/gym-gazebo) from Ignacio Arranz's master thesis [repository](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz). I only pasted here the installation commands, there are more for display and running environments in the Ignacio's  repository I mentioned before.
+I used the [installation guide](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/tree/master/gym-gazebo) from Ignacio Arranz's master thesis [repository](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz). I only pasted here the installation commands, there are more for display and running environments in the Ignacio's  repository I mentioned before [\[5\]](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/blob/master/gym-gazebo/README.md).
 
 ## Installation
 
@@ -123,16 +123,14 @@ I found the missing files in the [gym-gazebo repo](https://github.com/erlerobot/
 
 ```bash
 git clone https://github.com/erlerobot/gym-gazebo
-cp -r gym-gazebo/gym_gazebo/envs/assets/meshes/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/env/assets
-cp -r gym-gazebo/gym_gazebo/envs/assets/urdf/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/env/assets/
+cp -r gym-gazebo/gym_gazebo/envs/assets/meshes/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/envs/assets/
+cp -r gym-gazebo/gym_gazebo/envs/assets/urdf/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/envs/assets/
 ```
 
 
 
-### Running and environment
-
+### Running
 ```bash
-
 cd gym_gazebo/envs/installation
 bash setup_melodic.bash
 bash turtlebot_setup.bash
