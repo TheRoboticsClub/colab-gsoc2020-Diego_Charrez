@@ -146,7 +146,8 @@ python3 circuit2_turtlebot_lidar_qlearn.py
 
 ## Outcomes
 
-I opened an [issue](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/issues/9) for the missing files issue. 
+I opened an [issue](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/issues/9) for the missing files issue.
+
 
 ## References
 
