@@ -1,5 +1,5 @@
 ---
-title: "Gym and Gazebo"
+title: "Behavior Studio"
 excerpt: ""
 
 sidebar:
@@ -142,11 +142,6 @@ python3 circuit2_turtlebot_lidar_qlearn.py
 ```
 
 ![Turtlebot]({{ "/assets/images/blogs/Turtlebot.gif" | absolute_url }})
-
-
-## Outcomes
-
-I opened an [issue](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/issues/9) for the missing files issue. 
 
 ## References
 
