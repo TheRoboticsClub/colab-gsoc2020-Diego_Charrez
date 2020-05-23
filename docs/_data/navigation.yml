@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: Roadmap
+    url: /roadmap/
 
   - title: LogBook
     url: /logbook/
@@ -12,6 +14,11 @@ main:
 
 # left side bar
 docs:
+  - title: Roadmap
+    children: 
+    - title: Roadmap
+      url: /roadmap/
+
   - title: LogBook
     children:
       - title: Check it out
