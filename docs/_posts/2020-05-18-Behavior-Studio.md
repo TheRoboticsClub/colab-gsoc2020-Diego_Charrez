@@ -19,6 +19,13 @@ author: Diego Charrez
 pinned: false
 ---
 
+# Objetives
+
+- Get more familiar with Behavior Studio.
+- Write concepts related to Behavior Studio.
+- Install Behavior Studio.
+- Try some examples from Behavior Studio
+
 Behavior Studio is a set of tools written in python that uses the JdeRobot toolkit for comparing different autonomous driving networks [\[1\]](https://github.com/JdeRobot/BehaviorStudio/tree/reboot).
 
 ## Jderobot Base

@@ -19,6 +19,13 @@ author: Diego Charrez
 pinned: false
 ---
 
+# Objetives
+
+- Getting familiar with the tools we will be using
+- Write some definitions about the tools.
+- Install the tools.
+- Reproduce an example.
+
 # Definitions
 
 ## OpenAI Gym
@@ -127,7 +134,14 @@ cp -r gym-gazebo/gym_gazebo/envs/assets/meshes/ 2019-tfm-ignacio-arranz/gym-gaze
 cp -r gym-gazebo/gym_gazebo/envs/assets/urdf/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/envs/assets/
 ```
 
+#### Env variable not set
 
+```bash
+RLException: Invalid <arg> tag: environment variable 'GYM_GAZEBO_WORLD_CIRCUIT_F1' is not set.
+
+Arg xml is <arg default="$(env GYM_GAZEBO_WORLD_CIRCUIT_F1)" name="world_file"/>
+The traceback for the exception was written to the log file
+```
 
 ### Running
 ```bash
