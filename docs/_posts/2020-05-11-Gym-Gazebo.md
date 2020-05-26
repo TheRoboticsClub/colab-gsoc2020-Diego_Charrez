@@ -19,7 +19,7 @@ author: Diego Charrez
 pinned: false
 ---
 
-# Objetives
+# Objectives
 
 - Getting familiar with the tools we will be using
 - Write some definitions about the tools.
@@ -63,8 +63,10 @@ source ~/.bashrc
 ```bash
 git clone https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz
 cd 2019-tfm-ignacio-arranz/gym-gazebo
-pip3 install -r requirements.txt
-pip3 install -e .
+virtualenv -p python3 gazebo-gym
+source gazebo-gym/bin/activate
+pip install -r requirements.txt
+pip install -e .
 ```
 
 Adding more packages needed
@@ -126,13 +128,17 @@ cp: cannot stat '../assets/urdf/kobuki_nn_urdf/urdf/': No such file or directory
 cp: cannot stat '../assets/meshes/lidar_lite_v2_withRay.dae': No such file or directory
 ```
 
-I found the missing files in the [gym-gazebo repo](https://github.com/erlerobot/gym-gazebo/tree/master/gym_gazebo/envs/assets) from erlerobot, so I copied to the Ignacio's repo and the bash ran correctly now.
+I found the missing files in the [gym-gazebo repository](https://github.com/erlerobot/gym-gazebo/tree/master/gym_gazebo/envs/assets) from erlerobot, so I copied to the Ignacio's repository and the bash ran correctly now.
 
 ```bash
 git clone https://github.com/erlerobot/gym-gazebo
 cp -r gym-gazebo/gym_gazebo/envs/assets/meshes/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/envs/assets/
 cp -r gym-gazebo/gym_gazebo/envs/assets/urdf/ 2019-tfm-ignacio-arranz/gym-gazebo/gym-gazebo/envs/assets/
 ```
+
+### Python 2 syntax
+
+In order to run the code using python3 a few changes were made like changing `xrange` for `range`.
 
 #### Env variable not set
 
@@ -143,7 +149,14 @@ Arg xml is <arg default="$(env GYM_GAZEBO_WORLD_CIRCUIT_F1)" name="world_file"/>
 The traceback for the exception was written to the log file
 ```
 
+```bash
+export GYM_GAZEBO_WORLD_CIRCUIT_F1=/root/2019-tfm-ignacio-arranz/gym-gazebo/gym_gazebo/envs/assets/worlds/f1_1_simplecircuit.world
+```
+
 ### Running
+
+Turtlebot example
+
 ```bash
 cd gym_gazebo/envs/installation
 bash setup_melodic.bash
@@ -157,6 +170,26 @@ python3 circuit2_turtlebot_lidar_qlearn.py
 
 ![Turtlebot]({{ "/assets/images/blogs/Turtlebot.gif" | absolute_url }})
 
+Formula 1 example
+
+```bash
+cd gym_gazebo/envs/installation
+bash setup_melodic.bash
+bash formula1_setup.bash
+```
+
+```bash
+cd agents/f1
+python f1_follow_line_camera.py
+```
+
+![Formula1]({{ "/assets/images/blogs/f1.gif" | absolute_url }})
+
+### Stopping the training
+
+```
+echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
+```
 
 ## Outcomes
 
@@ -174,4 +207,6 @@ I opened an [issue](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/i
 [4] Nacho Arranz’s master thesis [repository](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz) 
 
 [5] [Gym-gazebo](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/blob/master/gym-gazebo/README.md)
+
+[6] OpenCV [with python3](https://stackoverflow.com/questions/49221565/unable-to-use-cv-bridge-with-ros-kinetic-and-python3)
 
