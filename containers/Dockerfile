@@ -2,41 +2,54 @@ FROM nvidia/cudagl:10.1-devel-ubuntu18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update -y && apt-get -y upgrade && apt-get install -y --no-install-recommends apt-utils \
-    wget curl git vim sudo firefox && \
-    apt-get autoclean && apt-get autoremove
-
-RUN apt-get update && apt-get install -y xvfb x11vnc python-opengl icewm cmake tmux python3-pip
-RUN pip3 install jupyterlab virtualenv
+RUN apt-get update -y && apt-get -y upgrade && apt-get install -y --no-install-recommends \
+        apt-utils \
+        wget \
+        curl \
+        git \
+        vim \
+        sudo \
+        firefox \
+        xvfb \
+        x11vnc \
+        python-opengl \
+        icewm \
+        cmake \
+        tmux \
+        python3-setuptools \
+        python3-pip && \
+    pip3 install jupyterlab virtualenv && \
+    apt-get autoclean && \
+    apt-get autoremove
 
 # ROS melodic
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-RUN apt update
-RUN apt install -y --no-install-recommends ros-melodic-desktop-full
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
+    apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+    apt update && apt install -y --no-install-recommends \
+        ros-melodic-desktop-full
 
 # Jderobot base and assets
-RUN sh -c 'echo "deb [arch=amd64] http://wiki.jderobot.org/apt `lsb_release -cs` main" > /etc/apt/sources.list.d/jderobot.list'
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 24E521A4
-RUN apt update
-RUN apt install -y --no-install-recommends jderobot
-RUN apt install -y --no-install-recommends jderobot-assets
-RUN apt install -y --no-install-recommends ros-melodic-jderobot-assets
-RUN echo "source /opt/jderobot/share/jderobot/gazebo/gazebo-setup.sh" >> ~/.bashrc
-RUN echo "source /opt/jderobot/share/jderobot/gazebo/assets-setup.sh" >> ~/.bashrc
-RUN echo "source /opt/jderobot/setup.bash" >> ~/.bashrc 
-RUN source ~/.bashrc
+RUN sh -c 'echo "deb [arch=amd64] http://wiki.jderobot.org/apt `lsb_release -cs` main" > /etc/apt/sources.list.d/jderobot.list' && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv 24E521A4 && \
+    apt update && apt install -y --no-install-recommends \
+        jderobot \
+        jderobot-assets \
+        ros-melodic-jderobot-assets && \
+    echo "source /opt/jderobot/share/jderobot/gazebo/gazebo-setup.sh" >> ~/.bashrc && \
+    echo "source /opt/jderobot/share/jderobot/gazebo/assets-setup.sh" >> ~/.bashrc && \
+    echo "source /opt/jderobot/setup.bash" >> ~/.bashrc && \
+    source ~/.bashrc
 
-COPY start.sh /root/
-RUN chmod +x /root/start.sh
-
-# Add user ubuntu with no password, add to sudo group
-RUN adduser --disabled-password --gecos '' ubuntu
-RUN adduser ubuntu sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+# Add user ubuntu with no password
+RUN adduser --disabled-password --gecos '' ubuntu && \
+    adduser ubuntu sudo && \
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER ubuntu
 WORKDIR /home/ubuntu/
-RUN chmod a+rwx /home/ubuntu/
+
+COPY start.sh /root/
+RUN chmod a+rwx /home/ubuntu/ && \
+    chmod +x /root/start.sh
 
 USER root
 
