@@ -4,20 +4,20 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y && apt-get -y upgrade && apt-get install -y --no-install-recommends \
         apt-utils \
-        wget \
-        curl \
-        git \
-        vim \
-        sudo \
-        firefox \
-        xvfb \
-        x11vnc \
-        python-opengl \
-        icewm \
         cmake \
-        tmux \
+        curl \
+        firefox \
+        git \
+        icewm \
+        python-opengl \
         python3-setuptools \
-        python3-pip && \
+        python3-pip \
+        sudo \ 
+        tmux \
+        vim \
+        wget \
+        xvfb \
+        x11vnc && \
     pip3 install jupyterlab virtualenv && \
     apt-get autoclean && \
     apt-get autoremove

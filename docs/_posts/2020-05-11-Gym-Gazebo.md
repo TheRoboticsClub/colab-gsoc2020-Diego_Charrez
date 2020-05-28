@@ -140,7 +140,7 @@ cp -r gym-gazebo/gym_gazebo/envs/assets/urdf/ 2019-tfm-ignacio-arranz/gym-gazebo
 
 In order to run the code using python3 a few changes were made like changing `xrange` for `range`.
 
-#### Env variable not set
+#### Environment variable not set
 
 ```bash
 RLException: Invalid <arg> tag: environment variable 'GYM_GAZEBO_WORLD_CIRCUIT_F1' is not set.
@@ -204,7 +204,7 @@ I opened an [issue](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/i
 
 [3] Jderobot, [BehaviorStudio (BehaviorSuite)](https://github.com/JdeRobot/BehaviorSuite)
 
-[4] Nacho Arranz’s master thesis [repository](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz) 
+[4] Ignacio Arranz’s master thesis [repository](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz) 
 
 [5] [Gym-gazebo](https://github.com/RoboticsLabURJC/2019-tfm-ignacio-arranz/blob/master/gym-gazebo/README.md)
 

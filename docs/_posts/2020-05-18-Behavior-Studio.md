@@ -19,7 +19,7 @@ author: Diego Charrez
 pinned: false
 ---
 
-# Objetives
+# Objectives
 
 - Get more familiar with Behavior Studio.
 - Write concepts related to Behavior Studio.

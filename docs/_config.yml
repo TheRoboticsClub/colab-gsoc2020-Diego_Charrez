@@ -133,7 +133,7 @@ author:
       url: dcharrezt@gmail.com
     - label: "About Me"
       icon: "fas fa-fw fa-link"
-      url: "dcharrezt.github.io"
+      url: "https://dcharrezt.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/dcharrezt"
