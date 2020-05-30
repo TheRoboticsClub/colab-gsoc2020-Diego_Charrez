@@ -22,11 +22,10 @@ pinned: false
 # Objectives
 
 * Brief introduction to Reinforcement Learning
-* An small example about Reinforcement Learning
 
 # Introduction
 
-As one of the main task in the project is to benchmark Deep Reinforcement Learning, with other approaches that are present in the Behavior Studio. In this post I will give a brief explanation about Reinforcement Learning.
+As one of the main task in the project is to benchmark Deep Reinforcement Learning, with other approaches that are present in the Behavior Studio. In this post I will give a brief explanation about Reinforcement Learning .
 
 ## Concepts
 
@@ -39,9 +38,7 @@ As one of the main task in the project is to benchmark Deep Reinforcement Learni
   <figcaption>Figure the book, Reinforcement Learning: An Introduction by Andrew Barto and Richard S. Sutton</figcaption>
 </figure>
   
-  Markov Decision Process framework models mathematically the Reinforcement Learning problem which comprehends the interaction between an agent and an environment
-
-  Reinforcement Learning used the Markov Decision Process framework to represent the interaction between an agent and an environment, For instance, the agent in this project would be the Formula 1 car and our environment would be the track.
+  Markov Decision Process framework models mathematically the Reinforcement Learning problem which comprehends the interaction between agent and environment [\[4\]](https://spinningup.openai.com/en/latest/) [\[9\]](http://incompleteideas.net/book/the-book-2nd.html).
 
 ### Environment 
 
@@ -92,6 +89,16 @@ Given that we are going to use a camera as perception, the states would be the i
 
 The reward signal $r$ is given by the environment after the agent has taken an action $a$ in a particular state $s$.
 
+### Episode
+
+An episode starts from an initial state $s_{0}$ until a terminal state which in our case would be when the Formula 1 car leaves the lane.
+
+
+## Goals
+
+The main goal of the reinforcement learning algorithms is to get the maximum discounted reward over an episode, also known as expected return denoted by $G_{t}$, the discount factor $\gamma, 0 \leq \gamma \leq 1$ controls the value of immediate rewards and long term rewards [\[4\]](https://spinningup.openai.com/en/latest/) [\[9\]](http://incompleteideas.net/book/the-book-2nd.html).
+
+$$G_{t}=\sum_{t=0}^{\infty} \gamma^{t} r_{t}$$
 
 
 
@@ -114,3 +121,5 @@ learning](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf)
 [7] Deepmind, [Playing Atari with Deep Reinforcement Learning](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf)
 
 [8] B Ravi Kiran, et al. [Deep RL for Autonomous Driving survey](https://arxiv.org/abs/2002.00444)
+
+[9] Andrew Barto and Richard S. Sutton, [Reinforcement Learning: An introduction](http://incompleteideas.net/book/the-book-2nd.html), MIT Press, 2018.
