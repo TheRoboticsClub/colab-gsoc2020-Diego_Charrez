@@ -9,6 +9,7 @@ RUN apt-get update -y && apt-get -y upgrade && apt-get install -y --no-install-r
         firefox \
         git \
         icewm \
+	libssl-dev \
         python-opengl \
         python3-setuptools \
         python3-pip \
@@ -38,7 +39,7 @@ RUN sh -c 'echo "deb [arch=amd64] http://wiki.jderobot.org/apt `lsb_release -cs`
     echo "source /opt/jderobot/share/jderobot/gazebo/gazebo-setup.sh" >> ~/.bashrc && \
     echo "source /opt/jderobot/share/jderobot/gazebo/assets-setup.sh" >> ~/.bashrc && \
     echo "source /opt/jderobot/setup.bash" >> ~/.bashrc && \
-    source ~/.bashrc
+    /bin/bash -c "source ~/.bashrc"
 
 # Add user ubuntu with no password
 RUN adduser --disabled-password --gecos '' ubuntu && \
@@ -46,14 +47,12 @@ RUN adduser --disabled-password --gecos '' ubuntu && \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER ubuntu
 WORKDIR /home/ubuntu/
-
-COPY start.sh /root/
-RUN chmod a+rwx /home/ubuntu/ && \
-    chmod +x /root/start.sh
+RUN chmod a+rwx /home/ubuntu/
 
 USER root
-
-RUN echo 'alias jl="DISPLAY=:0 jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --allow-root &"' >> /root/.bashrc && \
+COPY start.sh /root/
+RUN chmod +x /root/start.sh && \
+    echo 'alias jl="DISPLAY=:0 jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --allow-root &"' >> /root/.bashrc && \
     echo 'alias tb="tensorboard --logdir runs --bind_all &"' >> /root/.bashrc
 
 WORKDIR /root
