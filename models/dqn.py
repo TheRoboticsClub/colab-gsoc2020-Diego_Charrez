@@ -38,7 +38,7 @@ def compute_avg_return(environment, policy, num_episodes=10):
             action_step = policy.action(time_step)
             time_step = environment.step(action_step.action)
             episode_return += time_step.reward
-    total_return += episode_return
+        total_return += episode_return
 
     avg_return = total_return / num_episodes
     return avg_return.numpy()[0]
@@ -53,7 +53,9 @@ def collect_step(environment, policy, buffer):
     # Add trajectory to the replay buffer
     buffer.add_batch(traj)
 
-    
+def collect_data(env, policy, buffer, steps):
+    for _ in range(steps):
+        collect_step(env, policy, buffer)    
     
 def main():
     args = dqn_args_train()
@@ -66,6 +68,7 @@ def main():
     # Create the environment
     env_name = "CartPole-v0"
     env = suite_gym.load(env_name)
+    env.reset()
     
     train_py_env = suite_gym.load(env_name)
     eval_py_env = suite_gym.load(env_name)
@@ -74,7 +77,6 @@ def main():
     
     # Create Q Network
     fc_layer_params = (100,)
-
     q_net = q_network.QNetwork(
         train_env.observation_spec(),
         train_env.action_spec(),
@@ -94,14 +96,19 @@ def main():
         td_errors_loss_fn=common.element_wise_squared_loss,
         train_step_counter=train_step_counter)
     
+    agent.initialize()
     
     eval_policy = agent.policy
     collect_policy = agent.collect_policy
+    random_policy = random_tf_policy.RandomTFPolicy(train_env.time_step_spec(),
+                                                train_env.action_spec())
     
     replay_buffer = tf_uniform_replay_buffer.TFUniformReplayBuffer(
         data_spec=agent.collect_data_spec,
         batch_size=train_env.batch_size,
         max_length=args.replay_buffer_max_length)
+    
+    collect_data(train_env, random_policy, replay_buffer, steps=args.initial_collect_steps)
 
     dataset = replay_buffer.as_dataset(
         num_parallel_calls=3, 
@@ -133,10 +140,10 @@ def main():
 
         step = agent.train_step_counter.numpy()
 
-        if step % log_interval == 0:
+        if step % args.log_interval == 0:
             print('step = {0}: loss = {1}'.format(step, train_loss))
 
-        if step % eval_interval == 0:
+        if step % args.eval_interval == 0:
             avg_return = compute_avg_return(eval_env, agent.policy, args.num_eval_episodes)
             print('step = {0}: Average Return = {1}'.format(step, avg_return))
             returns.append(avg_return)
