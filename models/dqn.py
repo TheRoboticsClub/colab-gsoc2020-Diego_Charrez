@@ -84,7 +84,7 @@ def collect_data(environment, policy, buffer, n_steps):
         n_steps added to the replay buffer.
     """
     for _ in range(n_steps):
-        collect_step(env, policy, buffer)    
+        collect_step(environment, policy, buffer)    
     
 def main():
     args = dqn_args_train()
@@ -138,7 +138,7 @@ def main():
         batch_size=train_env.batch_size,
         max_length=args.replay_buffer_max_length)
     
-    collect_data(train_env, random_policy, replay_buffer, steps=args.initial_collect_steps)
+    collect_data(train_env, random_policy, replay_buffer, n_steps=args.initial_collect_steps)
 
     dataset = replay_buffer.as_dataset(
         num_parallel_calls=3, 
