@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 ### Hyperparameters
 
-Information about hyperparameters can shown by running.
+Information about hyperparameters can be shown by running.
 
 ```bash
 python dqn.py --help
@@ -49,3 +49,5 @@ python dqn.py --seed 123
 ```
 
 ### Evaluation
+
+TO-DO

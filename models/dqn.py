@@ -2,12 +2,9 @@ from __future__ import absolute_import, division, print_function
 
 import base64
 import imageio
-import IPython
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import PIL.Image
-import pyvirtualdisplay
 
 import tensorflow as tf
 
@@ -24,10 +21,21 @@ from tf_agents.replay_buffers import tf_uniform_replay_buffer
 from tf_agents.trajectories import trajectory
 from tf_agents.utils import common
 
+# Enables TensorFlow 2 behaviors.
 tf.compat.v1.enable_v2_behavior()
 
 
-def compute_avg_return(environment, policy, num_episodes=10):
+def compute_avg_return(environment, policy, num_episodes):
+    """Computes the average return.
+    
+    Args:
+        environment: The environment.
+        policy: The agent's policy.
+        num_episodes: Number of episodes.
+        
+    Returns:
+        avg_return: The average return.
+    """
 
     total_return = 0.0
     for _ in range(num_episodes):
@@ -45,16 +53,37 @@ def compute_avg_return(environment, policy, num_episodes=10):
 
 
 def collect_step(environment, policy, buffer):
+    """ Collects data from one step and stores it in the replay buffer.
+    
+    Args:
+        environment: The environment.
+        policy: The agent's policy.
+        buffer: The replay buffer.
+        
+    Yields:
+        A trajectory added to the replay buffer.
+    """
+        
     time_step = environment.current_time_step()
     action_step = policy.action(time_step)
     next_time_step = environment.step(action_step.action)
     traj = trajectory.from_transition(time_step, action_step, next_time_step)
 
-    # Add trajectory to the replay buffer
     buffer.add_batch(traj)
 
-def collect_data(env, policy, buffer, steps):
-    for _ in range(steps):
+def collect_data(environment, policy, buffer, n_steps):
+    """ Collects data from n steps and stores it in the replay buffer.
+    
+    Args:
+        environment: The environment.
+        policy: The agent's policy.
+        buffer: The replay buffer.
+        n_steps: The number of steps to collect data.
+        
+    Yields:
+        n_steps added to the replay buffer.
+    """
+    for _ in range(n_steps):
         collect_step(env, policy, buffer)    
     
 def main():
@@ -98,6 +127,7 @@ def main():
     
     agent.initialize()
     
+    # Crate policies
     eval_policy = agent.policy
     collect_policy = agent.collect_policy
     random_policy = random_tf_policy.RandomTFPolicy(train_env.time_step_spec(),
@@ -147,8 +177,6 @@ def main():
             avg_return = compute_avg_return(eval_env, agent.policy, args.num_eval_episodes)
             print('step = {0}: Average Return = {1}'.format(step, avg_return))
             returns.append(avg_return)
-
-
 
 
 if __name__ == '__main__':
