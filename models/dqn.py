@@ -127,7 +127,7 @@ def main():
     
     agent.initialize()
     
-    # Crate policies
+    # Create policies
     eval_policy = agent.policy
     collect_policy = agent.collect_policy
     random_policy = random_tf_policy.RandomTFPolicy(train_env.time_step_spec(),
