@@ -20,7 +20,7 @@ def dqn_args_train():
         '--num_iterations',
         dest='num_iterations',
         type=int,
-        help=' Training will end after n number of interations.',
+        help=' Training will end after reaching the number of interations.',
         default=20000)
 
     parser.add_argument(
