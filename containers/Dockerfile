@@ -6,10 +6,12 @@ RUN apt-get update -y && apt-get -y upgrade && apt-get install -y --no-install-r
         apt-utils \
         cmake \
         curl \
+        software-properties-common \
         firefox \
         git \
         icewm \
-	libssl-dev \
+	    libssl-dev \
+        psmisc \
         python-opengl \
         python3-setuptools \
         python3-pip \
@@ -53,7 +55,8 @@ USER root
 COPY start.sh /root/
 RUN chmod +x /root/start.sh && \
     echo 'alias jl="DISPLAY=:0 jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --allow-root &"' >> /root/.bashrc && \
-    echo 'alias tb="tensorboard --logdir runs --bind_all &"' >> /root/.bashrc
+    echo 'alias tb="tensorboard --logdir runs --bind_all &"' >> /root/.bashrc && \
+    echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
 
 WORKDIR /root
 CMD ["bash"]
