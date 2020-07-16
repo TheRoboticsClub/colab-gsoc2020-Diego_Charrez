@@ -23,8 +23,8 @@ python3-vcstool python3-pyqt5 python3-skimage \
 pyqt5-dev-tools libcwiid-dev python3-rviz \
 libbluetooth-dev libspnav-dev \
 cmake gcc g++ qt5-qmake \
-libusb-dev libftdi-dev \
-python3-defusedxml python3-vcstool \
+libusb-dev libftdi-dev libsdl-dev \
+python3-defusedxml libsdl-image1.2-dev \
 ros-noetic-octomap-msgs        \
 ros-noetic-geodesy             \
 ros-noetic-octomap-ros         \
@@ -44,8 +44,8 @@ ros-noetic-navigation
 ```
 
 ```bash
-git clone -b release/1.1.x https://github.com/stonier/sophus
-cd sophus && mkdir build && cd build
+git clone https://github.com/strasdat/Sophus
+cd Sophus && mkdir build && cd build
 cmake ../ && make && make install
 ```
 
