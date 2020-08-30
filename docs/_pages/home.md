@@ -41,7 +41,9 @@ youTube_id: ID7qaEcIu4k
 
 Hello, everybody.
 
-This project focuses on using stable Reinforcement Learning for autonomous driving using Gazebo and OpenAI gym.
+This project focuses on using stable Reinforcement Learning Q-learning for autonomous driving using Gazebo and OpenAI gym using the latest version of ROS and Gazebo. Using docker image to easily get started with the Behavior Studio tools.
+
+In the following [set of blogs](https://theroboticsclub.github.io/colab-gsoc2020-Diego_Charrez/logbook/) is explained the progress through the program.
 
 Mentors:
 
